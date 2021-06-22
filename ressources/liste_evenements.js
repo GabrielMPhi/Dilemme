@@ -3,7 +3,7 @@ let factory = new Dilemme_factory();
 
 // Banque de fonction utile...
 
-function methode_function_test() { score = score * 2}
+function methode_function_test() { jeu.score = jeu.score * 2}
 
 
 // Liste des événements du départ

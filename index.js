@@ -3,18 +3,18 @@ tour = new Tour()
 
 window.addEventListener('load',
 function(){
-	update_affichage();
 	initialisation_dilemme();
+	update_affichage();
 	modal_intro.classList.add("is-active")
 })
 
 function initialisation_dilemme(){
-
+	jeu = new Jeu(tour)
 }
 
 function update_affichage(){
 	affichage_tour.innerHTML = tour.numero
-	affichage_score.innerHTML = score
+	affichage_score.innerHTML = jeu.score
 	image_modal_choix_dilemme.src = choix_random_image()
 }
 
@@ -36,7 +36,6 @@ function selection_des_choix(){
     let choix_du_tour_numero = getRandomInt(liste_des_choix.length)
 	return liste_des_choix[choix_du_tour_numero]
 }
-
 
 function push_dans_tour(valeur){
 	tour.observateurs.push(valeur)

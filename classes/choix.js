@@ -11,7 +11,7 @@ class Choix{
         } 
         if (this.delai <= 0){
             if (Number.isInteger(this.effet)){
-            score += this.effet
+            jeu.score += this.effet
             } 
             if (typeof this.effet === "function") {
                 this.effet()
