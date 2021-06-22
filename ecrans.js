@@ -8,8 +8,8 @@ const modal_intro = document.querySelector("#modal_intro")
 const modal_option1 = document.querySelector("#btn_option1")
 const modal_option2 = document.querySelector("#btn_option2")
 
-modal_option1.addEventListener("click", () => { push_dans_tour(dilemme_du_tour_objet.choix_1); });
-modal_option2.addEventListener("click", () => { push_dans_tour(dilemme_du_tour_objet.choix_2); });
+modal_option1.addEventListener("click", () => { push_dans_tour(jeu.dilemme_du_tour_objet.choix_1); });
+modal_option2.addEventListener("click", () => { push_dans_tour(jeu.dilemme_du_tour_objet.choix_2); });
 
 const affichage_action_btn = document.querySelector("#modal_btn")
 
@@ -34,8 +34,8 @@ function set_bulma_modal(id_modal, openers_elements_ids, closers_elements_ids){
 
 function updateliste(){
 	document.getElementById("affichage_choix_passes").innerHTML = ""
-	if (tour.observateurs != []){
-		tour.observateurs.forEach(choix => {
+	if (jeu.tour.observateurs != []){
+		jeu.tour.observateurs.forEach(choix => {
 
 			let p_choix = document.createElement("p");
 			p_choix.innerHTML = "- " + choix.nom_choix + "--- Durée : " + choix.delai
