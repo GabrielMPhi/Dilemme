@@ -26,7 +26,6 @@ affichage_action_btn.onclick = function changement_de_tour_affichage(){
     affichage_choix_a_faire_texte.innerHTML = jeu.dilemme_du_tour_objet.texte
 	modal_option1.innerHTML = jeu.dilemme_du_tour_objet.choix_1.nom_choix
 	modal_option2.innerHTML = jeu.dilemme_du_tour_objet.choix_2.nom_choix
-	//jeu.tour.augmenter()
 	update_affichage()
 }
 

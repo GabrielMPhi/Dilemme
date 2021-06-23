@@ -7,8 +7,6 @@ class Choix{
     }
 
     changementTour(observe){
-        console.log(observe.observateurs)
-        console.log("Score début tour: " + jeu.score )
         if (this.repetition){
             this.appliquer_effet()
         }
@@ -27,11 +25,8 @@ class Choix{
         if (Number.isInteger(this.effet)){
             console.log("score avant" + jeu.score)
             jeu.score += this.effet
-            console.log(this.effet)
-            console.log("score après" + jeu.score)
             } 
         if (typeof this.effet === "function") {
-            console.log(this.effet)
             this.effet()
         }
 

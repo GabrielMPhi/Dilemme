@@ -66,8 +66,8 @@ let dilemme_philosophique_2 = function() { return factory.getDilemme(
         choix_2 : {nom_choix: "Ne pas sacrifier un innocent", effet: getRandomInt(10), delai: 1 + getRandomInt(5), repetition:false}
     }
 )}
-liste_des_choix.push(dilemme1)
-//liste_des_choix.push(dilemme1, dilemme2, dilemme3, dilemme4, dilemme_philosophique_1, dilemme_philosophique_2)
+
+liste_des_choix.push(dilemme1, dilemme2, dilemme3, dilemme4, dilemme_philosophique_1, dilemme_philosophique_2)
 
 // Liste des événements de fin de partie
 
