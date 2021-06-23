@@ -1,7 +1,7 @@
 class Tour {
     constructor(){
       this.numero = 1;
-      this.observateurs = []; 
+      this.observateurs = [];
     }
   
     augmenter = function(){

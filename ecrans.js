@@ -39,11 +39,18 @@ function updateliste(){
 
 			let p_choix = document.createElement("p");
 			p_choix.innerHTML = "- " + choix.nom_choix + "--- Durée : " + choix.delai
-
 			document.getElementById("affichage_choix_passes").appendChild(p_choix);
 		});
 	}
-	update_affichage()
 }
 
 
+modal_option1.onclick = function changement_de_tour_modal(){
+	jeu.tour.augmenter()
+	update_affichage()
+}
+
+modal_option2.onclick = function changement_de_tour_modal(){
+	jeu.tour.augmenter()
+	update_affichage()
+}
