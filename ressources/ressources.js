@@ -16,3 +16,6 @@ function arrayRemove(arr, value){
         return ele !== value 
     })
 }
+function trouver_la_france(){
+    return jeu._pays_etranger.findIndex(x => x.nom === "France");
+} 

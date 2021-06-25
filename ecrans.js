@@ -4,6 +4,9 @@ const affichage_score = document.querySelector("#affichage_score")
 const affichage_choix_passes = document.querySelector("#affichage_choix_passes")
 const affichage_choix_a_faire_texte = document.querySelector("#affichage_choix_a_faire_texte")
 
+const affichage_population_france = document.querySelector("#affichage_population_france")
+const affichage_population_russie = document.querySelector("#affichage_population_russie")
+
 const modal_intro = document.querySelector("#modal_intro")
 const modal_option1 = document.querySelector("#btn_option1")
 const modal_option2 = document.querySelector("#btn_option2")

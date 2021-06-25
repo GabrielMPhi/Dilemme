@@ -4,6 +4,7 @@ class Jeu {
         this._tour=new Tour()
         this._score=0
         this._dilemme_du_tour_objet = []
+        this._pays_etranger = liste_de_pays_etranger
     }
 
     get score() {
@@ -29,5 +30,13 @@ class Jeu {
     set dilemme_du_tour_objet(e){
     this._dilemme_du_tour_objet = e
     }
+
+    get pays_etranger() {
+      return this._pays_etranger
+    }
+
+  set pays_etranger(e){
+  this._pays_etranger = e
+  }
 
 }

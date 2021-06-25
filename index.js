@@ -12,6 +12,8 @@ function initialisation_dilemme(){
 function update_affichage(){
 	affichage_tour.innerHTML = jeu.tour.numero
 	affichage_score.innerHTML = jeu.score
+	affichage_population_france.innerHTML = jeu._pays_etranger[index_de_france].population
+	affichage_population_russie.innerHTML = jeu._pays_etranger[index_de_russie].population
 	updateliste()
 	image_modal_choix_dilemme.src = choix_random_image()
 }
@@ -27,7 +29,18 @@ affichage_action_btn.onclick = function changement_de_tour_affichage(){
 	modal_option1.innerHTML = jeu.dilemme_du_tour_objet.choix_1.nom_choix
 	modal_option2.innerHTML = jeu.dilemme_du_tour_objet.choix_2.nom_choix
 	update_affichage()
+	console.log(jeu.pays_etranger)
+	passage_de_tour_pays()
+
 }
+
+function passage_de_tour_pays(){
+	for (let i = 0; i < jeu._pays_etranger.length; i++) {
+		jeu._pays_etranger[i].croissance_population()
+	  } 
+
+}
+
 
 function selection_des_choix(){
     let choix_du_tour_numero = getRandomInt(liste_des_choix.length)
