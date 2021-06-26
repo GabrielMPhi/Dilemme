@@ -1,9 +1,10 @@
 class Pays {
 
 
-    constructor(nom, population){
+    constructor(nom, population, prestige){
         this._nom = nom;
         this._population = population;
+        this._prestige = prestige
     }
 
     get nom (){
@@ -19,8 +20,15 @@ class Pays {
         this._population = e
     }
 
+    get prestige (){
+        return this._prestige
+    }
+    set prestige(e){
+        this._prestige = e
+    }
+
     croissance_population = function(){
-        this._population+= 5 
+        this._population= this._population + parseInt((this._population *.05), 10)
     } 
 
 }

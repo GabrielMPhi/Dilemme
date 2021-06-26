@@ -4,14 +4,28 @@ let factory_dilemme = new Dilemme_factory();
 // Banque de fonction utile...
 
 function methode_investir_en_france() {
-    console.log("Evenement qu'on veut!!")
     jeu._pays_etranger[index_de_france].population += 100 
     liste_des_choix.push(dilemme_france_dette_1)
 }
 
 function methode_investir_en_russie() {
-    console.log("Evenement qu'on veut!!")
     jeu._pays_etranger[index_de_russie].population += 100 
+}
+
+function methode_investir_aux_etats_unis() {
+    jeu._pays_etranger[index_de_etats_unis].population += 100 
+}
+
+function methode_investir_dans_empire_qing() {
+    jeu._pays_etranger[index_de_empire_qing].population += 100 
+}
+
+function methode_investir_en_suede() {
+    jeu._pays_etranger[index_de_suede].population += 100 
+}
+
+function methode_investir_au_danemark() {
+    jeu._pays_etranger[index_de_danemark].population += 100 
 }
 
 
@@ -36,16 +50,16 @@ let dilemme2 = function() { return factory_dilemme.getDilemme(
 let dilemme3 = function() { return factory_dilemme.getDilemme(
     {
         texte : "Doit-on investir en <b>Suède</b> ou au <b>Danemark</b>?",
-        choix_1 : {nom_choix: "Investir en Suède", effet: 2, delai: 1 + getRandomInt(5), repetition:false},
-        choix_2 : {nom_choix: "Investir au Danemark", effet: 13, delai: 1 + getRandomInt(5), repetition:false}
+        choix_1 : {nom_choix: "Investir en Suède", effet: methode_investir_en_suede, delai: 1 + getRandomInt(5), repetition:false},
+        choix_2 : {nom_choix: "Investir au Danemark", effet: methode_investir_au_danemark, delai: 1 + getRandomInt(5), repetition:false}
     }
 )}
 
 let dilemme4 = function() { return factory_dilemme.getDilemme(
     {
-        texte : "Doit-on investir dans l'<b>Empire Qing</b> ou au <b>Canada</b>?",
-        choix_1 : {nom_choix: "Investir dans l'Empire Qing", effet: 2, delai: 5 + getRandomInt(15), repetition:false},
-        choix_2 : {nom_choix: "Investir au Canada", effet: 13, delai: 5 + getRandomInt(10), repetition:false}
+        texte : "Doit-on investir dans l'<b>Empire Qing</b> ou aux <b>États-Unis</b>?",
+        choix_1 : {nom_choix: "Investir dans l'Empire Qing", effet: methode_investir_dans_empire_qing, delai: 5 + getRandomInt(15), repetition:false},
+        choix_2 : {nom_choix: "Investir aux États-Unis", effet: methode_investir_aux_etats_unis, delai: 5 + getRandomInt(10), repetition:false}
     }
 )}
 

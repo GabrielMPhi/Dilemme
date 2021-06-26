@@ -23,7 +23,6 @@ class Choix{
 
     appliquer_effet(){
         if (Number.isInteger(this.effet)){
-            console.log("score avant" + jeu.score)
             jeu.score += this.effet
             } 
         if (typeof this.effet === "function") {
