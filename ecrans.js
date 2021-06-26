@@ -24,6 +24,7 @@ function set_bulma_modal(id_modal, openers_elements_ids, closers_elements_ids){
 	openers_elements_ids.forEach(element =>
 		document.getElementById(element).addEventListener('click', () => {
 			modal.classList.add("is-active");
+			console.log(jeu.pays_etranger)
 		})
 	);
 	

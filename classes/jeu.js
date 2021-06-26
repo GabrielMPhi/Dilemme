@@ -38,5 +38,9 @@ class Jeu {
   set pays_etranger(e){
   this._pays_etranger = e
   }
-
+  passage_de_tour_pays(){
+    for (let i = 0; i < this._pays_etranger.length; i++) {
+        this._pays_etranger[i].croissance_population()
+      }
+    }
 }

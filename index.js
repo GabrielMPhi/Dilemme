@@ -29,18 +29,7 @@ affichage_action_btn.onclick = function changement_de_tour_affichage(){
 	modal_option1.innerHTML = jeu.dilemme_du_tour_objet.choix_1.nom_choix
 	modal_option2.innerHTML = jeu.dilemme_du_tour_objet.choix_2.nom_choix
 	update_affichage()
-	console.log(jeu.pays_etranger)
-	passage_de_tour_pays()
-
 }
-
-function passage_de_tour_pays(){
-	for (let i = 0; i < jeu._pays_etranger.length; i++) {
-		jeu._pays_etranger[i].croissance_population()
-	  } 
-
-}
-
 
 function selection_des_choix(){
     let choix_du_tour_numero = getRandomInt(liste_des_choix.length)
