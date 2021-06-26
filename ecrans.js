@@ -14,6 +14,15 @@ const modal_option2 = document.querySelector("#btn_option2")
 modal_option1.addEventListener("click", () => { push_dans_tour(jeu.dilemme_du_tour_objet.choix_1); });
 modal_option2.addEventListener("click", () => { push_dans_tour(jeu.dilemme_du_tour_objet.choix_2); });
 
+const btn_affichage_stats = document.querySelector("#btn_affichage_stats")
+const div_affichage_stats = document.querySelector("#div_affichage_stats")
+
+btn_affichage_stats.addEventListener("click", () => { 
+	if (div_affichage_stats.classList.contains("is-hidden")){
+		div_affichage_stats.classList.remove("is-hidden")}
+	else {div_affichage_stats.classList.add("is-hidden")}
+	})	;
+
 const affichage_action_btn = document.querySelector("#modal_btn")
 
 set_bulma_modal("modal_intro", [], ["modal_intro_btn_close", "modal_intro_background", "btn_debut_partie_modal_card"])
