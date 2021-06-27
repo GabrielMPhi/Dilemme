@@ -16,3 +16,7 @@ function arrayRemove(arr, value){
         return ele !== value 
     })
 }
+
+function push_dans_tour(valeur){
+	jeu.tour.observateurs.push(valeur)
+}

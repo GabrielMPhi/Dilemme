@@ -1,12 +1,13 @@
 class Jeu {
 
-    constructor(){
+    constructor(liste_pays){
         this._tour=new Tour()
         this._score=0
         this._dilemme_du_tour_objet = []
-        this._pays_etranger = liste_de_pays_etranger
+        //this._pays_etranger = liste_pays
+        this._monde = new Monde (liste_pays)
     }
-
+    
     get score() {
         return this._score
       }
@@ -38,9 +39,5 @@ class Jeu {
   set pays_etranger(e){
   this._pays_etranger = e
   }
-  passage_de_tour_pays(){
-    for (let i = 0; i < this._pays_etranger.length; i++) {
-        this._pays_etranger[i].croissance_population()
-      }
-    }
+
 }

@@ -1,6 +1,5 @@
 class Pays {
 
-
     constructor(nom, population, prestige){
         this._nom = nom;
         this._population = population;
@@ -30,10 +29,9 @@ class Pays {
         this._prestige = e
     }
 
-    croissance_population = function(){
-        console.log("Augmentation de la population! Elle était de : " + this._population)
-        this._population= this._population + parseInt((this._population * this._taux_croissance_population), 10)
-        console.log("La population est maintenant de : " + this._population)
+    croissance_population (){
+        let augmentation_population = parseInt((this._population * this._taux_croissance_population), 10)
+        this._population += augmentation_population
     } 
 
 }

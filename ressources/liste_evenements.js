@@ -4,28 +4,28 @@ let factory_dilemme = new Dilemme_factory();
 // Banque de fonction utile...
 
 function methode_investir_en_france() {
-    jeu._pays_etranger[index_de_france].population += 100 
+    jeu._monde._pays_etranger[index_de_france].population += 100 
     liste_des_choix.push(dilemme_france_dette_1)
 }
 
 function methode_investir_en_russie() {
-    jeu._pays_etranger[index_de_russie].population += 100 
+    jeu._monde._pays_etranger[index_de_russie].population += 100 
 }
 
 function methode_investir_aux_etats_unis() {
-    jeu._pays_etranger[index_de_etats_unis].population += 100 
+    jeu._monde._pays_etranger[index_de_etats_unis].population += 100 
 }
 
 function methode_investir_dans_empire_qing() {
-    jeu._pays_etranger[index_de_empire_qing].population += 100 
+    jeu._monde._pays_etranger[index_de_empire_qing].population += 100 
 }
 
 function methode_investir_en_suede() {
-    jeu._pays_etranger[index_de_suede].population += 100 
+    jeu._monde._pays_etranger[index_de_suede].population += 100 
 }
 
 function methode_investir_au_danemark() {
-    jeu._pays_etranger[index_de_danemark].population += 100 
+    jeu._monde._pays_etranger[index_de_danemark].population += 100 
 }
 
 

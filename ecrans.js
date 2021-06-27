@@ -33,7 +33,6 @@ function set_bulma_modal(id_modal, openers_elements_ids, closers_elements_ids){
 	openers_elements_ids.forEach(element =>
 		document.getElementById(element).addEventListener('click', () => {
 			modal.classList.add("is-active");
-			console.log(jeu.pays_etranger)
 		})
 	);
 	
@@ -48,7 +47,8 @@ function set_bulma_modal(id_modal, openers_elements_ids, closers_elements_ids){
 function updateliste(){
 	document.getElementById("affichage_choix_passes").innerHTML = ""
 	if (jeu.tour.observateurs != []){
-		jeu.tour.observateurs.forEach(choix => {
+		let liste_choix = jeu.tour.observateurs.filter(element => element instanceof Choix)
+		liste_choix.forEach(choix => {
 
 			let p_choix = document.createElement("p");
 			p_choix.innerHTML = "- " + choix.nom_choix + "--- Durée : " + choix.delai
