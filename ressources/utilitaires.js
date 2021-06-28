@@ -17,6 +17,6 @@ function arrayRemove(arr, value){
     })
 }
 
-function push_dans_tour(valeur){
-	jeu.tour.observateurs.push(valeur)
+function ajouter_dans_listeobservateur_tour(objet){
+	jeu.tour.observateurs.push(objet)
 }

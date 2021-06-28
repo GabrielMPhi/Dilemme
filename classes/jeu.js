@@ -1,19 +1,18 @@
 class Jeu {
 
-    constructor(liste_pays){
+    constructor(score, influence, liste_pays){
         this._tour=new Tour()
-        this._score=0
+        this._joueur= new Joueur (score, influence)
         this._dilemme_du_tour_objet = []
         this._monde = new Monde (liste_pays)
-        this._influence = 1
     }
     
-  get score() {
-      return this._score
+  get joueur() {
+      return this._joueur
     }
 
-  set score(e){
-  this._score = e
+  set joueur(e){
+  this._joueur = e
   }
 
   get tour() {

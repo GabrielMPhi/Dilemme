@@ -1,18 +1,22 @@
 window.addEventListener('load',
 function(){
 	initialisation_dilemme();
+	ajouter_les_observateurs();
 	update_affichage();
 	modal_intro.classList.add("is-active")
 })
 
 function initialisation_dilemme(){
-	jeu = new Jeu(liste_de_pays_etranger)
-	push_dans_tour(jeu._monde)
+	jeu = new Jeu(0, 3, liste_de_pays_etranger)
+}
+function ajouter_les_observateurs(){
+	ajouter_dans_listeobservateur_tour(jeu._monde)
+	ajouter_dans_listeobservateur_tour(jeu._joueur)
 }
 
 function update_affichage(){
 	affichage_tour.innerHTML = jeu.tour.numero
-	affichage_score.innerHTML = jeu.score
+	affichage_score.innerHTML = jeu._joueur.score
 	updateliste()
 	image_modal_choix_dilemme.src = choix_random_image()
 }
@@ -28,6 +32,8 @@ affichage_action_btn.onclick = function changement_de_tour_affichage(){
 	modal_option1.innerHTML = jeu.dilemme_du_tour_objet.choix_1.nom_choix
 	modal_option2.innerHTML = jeu.dilemme_du_tour_objet.choix_2.nom_choix
 	update_affichage()
+	console.log(jeu._joueur._influence)
+	console.log(jeu._monde._pays_etranger)
 }
 
 function selection_des_choix(){

@@ -1,18 +1,16 @@
 const image_modal_choix_dilemme = document.querySelector("#image_modal_choix_dilemme")
 const affichage_tour = document.querySelector("#affichage_tour")
 const affichage_score = document.querySelector("#affichage_score")
+const affichage_influence = document.querySelector("#affichage_influence")
 const affichage_choix_passes = document.querySelector("#affichage_choix_passes")
 const affichage_choix_a_faire_texte = document.querySelector("#affichage_choix_a_faire_texte")
-
-const affichage_population_france = document.querySelector("#affichage_population_france")
-const affichage_population_russie = document.querySelector("#affichage_population_russie")
 
 const modal_intro = document.querySelector("#modal_intro")
 const modal_option1 = document.querySelector("#btn_option1")
 const modal_option2 = document.querySelector("#btn_option2")
 
-modal_option1.addEventListener("click", () => { push_dans_tour(jeu.dilemme_du_tour_objet.choix_1); });
-modal_option2.addEventListener("click", () => { push_dans_tour(jeu.dilemme_du_tour_objet.choix_2); });
+modal_option1.addEventListener("click", () => { ajouter_dans_listeobservateur_tour(jeu.dilemme_du_tour_objet.choix_1); });
+modal_option2.addEventListener("click", () => { ajouter_dans_listeobservateur_tour(jeu.dilemme_du_tour_objet.choix_2); });
 
 const btn_affichage_stats = document.querySelector("#btn_affichage_stats")
 const div_affichage_stats = document.querySelector("#div_affichage_stats")
@@ -61,23 +59,21 @@ function updateliste(){
 		jeu.monde._pays_etranger.forEach(pays => {
 			let p_pays = document.createElement("p");
 			let div_pays = document.createElement("div");
-			p_pays.innerHTML = "- " + pays.nom + "--- Population : " + pays.population
-		//	document.getElementById("affichage_stats_pays").appendChild(p_pays);
-	//	});
-
-
+			p_pays.innerHTML = "- " + pays.nom + " --- Population : " + pays.population + 
+			" --- Infrastructure" + pays.infrastructure + " --- Prestige : " + pays.prestige
+			document.getElementById("affichage_stats_pays").appendChild(p_pays);
+		if(jeu._joueur.influence >=1){
         let button_infrastructure = document.createElement("input"); 
         button_infrastructure.id = "btnInfrastructure_pays_"+pays.nom;
         button_infrastructure.type = "button"; 
         button_infrastructure.class= "button is-small is-warning";
         button_infrastructure.value= "+Infrastructure";
         button_infrastructure.addEventListener("click", () => {
-			console.log(button_infrastructure.id)
-			fermer_bouton_infrastructure(button_infrastructure.id); 
+			fermer_bouton_infrastructure(button_infrastructure.id, pays); 
         }); 
 		document.getElementById("affichage_stats_pays").appendChild(div_pays);
-		document.getElementById("affichage_stats_pays").appendChild(p_pays);
         div_pays.appendChild(button_infrastructure); 
+		}
 	});
 	
 	}
@@ -85,8 +81,13 @@ function updateliste(){
 
 }
 
-function fermer_bouton_infrastructure(button_id){
-	document.getElementById(button_id).remove() 
+function fermer_bouton_infrastructure(button_id, pays){
+	if(jeu._joueur.influence >=1){
+		pays.infrastructure+=100
+		jeu._joueur.influence-=1
+		document.getElementById(button_id).remove()
+		updateliste()
+	}
   }
 
 modal_option1.onclick = function changement_de_tour_modal(){

@@ -4,28 +4,29 @@ let factory_dilemme = new Dilemme_factory();
 // Banque de fonction utile...
 
 function methode_investir_en_france() {
-    jeu._monde._pays_etranger[index_de_france].population += 100 
+    jeu._monde._pays_etranger[index_de_france].infrastructure += 100 
+    jeu.influence+=1
     liste_des_choix.push(dilemme_france_dette_1)
 }
 
 function methode_investir_en_russie() {
-    jeu._monde._pays_etranger[index_de_russie].population += 100 
+    jeu._monde._pays_etranger[index_de_russie].infrastructure += 100 
 }
 
 function methode_investir_aux_etats_unis() {
-    jeu._monde._pays_etranger[index_de_etats_unis].population += 100 
+    jeu._monde._pays_etranger[index_de_etats_unis].infrastructure += 100 
 }
 
 function methode_investir_dans_empire_qing() {
-    jeu._monde._pays_etranger[index_de_empire_qing].population += 100 
+    jeu._monde._pays_etranger[index_de_empire_qing].infrastructure += 100 
 }
 
 function methode_investir_en_suede() {
-    jeu._monde._pays_etranger[index_de_suede].population += 100 
+    jeu._monde._pays_etranger[index_de_suede].infrastructure += 100 
 }
 
 function methode_investir_au_danemark() {
-    jeu._monde._pays_etranger[index_de_danemark].population += 100 
+    jeu._monde._pays_etranger[index_de_danemark].infrastructure += 100 
 }
 
 
@@ -87,9 +88,9 @@ let dilemme_philosophique_2 = function() { return factory_dilemme.getDilemme(
     }
 )}
 
-// utile pour test // liste_des_choix.push(dilemme1)
+liste_des_choix.push(dilemme1)
 
-liste_des_choix.push(dilemme1, dilemme2, dilemme3, dilemme4, dilemme_philosophique_1, dilemme_philosophique_2)
+//liste_des_choix.push(dilemme1, dilemme2, dilemme3, dilemme4, dilemme_philosophique_1, dilemme_philosophique_2)
 
 // Liste des événements de fin de partie
 
