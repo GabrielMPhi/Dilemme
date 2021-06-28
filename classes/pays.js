@@ -15,6 +15,7 @@ class Pays {
     set nom(e){
         this._nom = e
     }
+    
     get population (){
         return this._population
     }

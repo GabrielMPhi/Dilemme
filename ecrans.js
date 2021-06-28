@@ -55,8 +55,39 @@ function updateliste(){
 			document.getElementById("affichage_choix_passes").appendChild(p_choix);
 		});
 	}
+
+	document.getElementById("affichage_stats_pays").innerHTML = ""
+	if (jeu.monde._pays_etranger != []){
+		jeu.monde._pays_etranger.forEach(pays => {
+			let p_pays = document.createElement("p");
+			let div_pays = document.createElement("div");
+			p_pays.innerHTML = "- " + pays.nom + "--- Population : " + pays.population
+		//	document.getElementById("affichage_stats_pays").appendChild(p_pays);
+	//	});
+
+
+        let button_infrastructure = document.createElement("input"); 
+        button_infrastructure.id = "btnInfrastructure_pays_"+pays.nom;
+        button_infrastructure.type = "button"; 
+        button_infrastructure.class= "button is-small is-warning";
+        button_infrastructure.value= "+Infrastructure";
+        button_infrastructure.addEventListener("click", () => {
+			console.log(button_infrastructure.id)
+			fermer_bouton_infrastructure(button_infrastructure.id); 
+        }); 
+		document.getElementById("affichage_stats_pays").appendChild(div_pays);
+		document.getElementById("affichage_stats_pays").appendChild(p_pays);
+        div_pays.appendChild(button_infrastructure); 
+	});
+	
+	}
+
+
 }
 
+function fermer_bouton_infrastructure(button_id){
+	document.getElementById(button_id).remove() 
+  }
 
 modal_option1.onclick = function changement_de_tour_modal(){
 	jeu.tour.augmenter()

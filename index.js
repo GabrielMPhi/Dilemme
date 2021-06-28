@@ -13,8 +13,6 @@ function initialisation_dilemme(){
 function update_affichage(){
 	affichage_tour.innerHTML = jeu.tour.numero
 	affichage_score.innerHTML = jeu.score
-	affichage_population_france.innerHTML = jeu._monde._pays_etranger[index_de_france].population
-	affichage_population_russie.innerHTML = jeu._monde._pays_etranger[index_de_russie].population
 	updateliste()
 	image_modal_choix_dilemme.src = choix_random_image()
 }

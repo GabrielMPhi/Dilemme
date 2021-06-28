@@ -4,40 +4,40 @@ class Jeu {
         this._tour=new Tour()
         this._score=0
         this._dilemme_du_tour_objet = []
-        //this._pays_etranger = liste_pays
         this._monde = new Monde (liste_pays)
+        this._influence = 1
     }
     
-    get score() {
-        return this._score
-      }
-
-    set score(e){
-    this._score = e
+  get score() {
+      return this._score
     }
 
-    get tour() {
-        return this._tour
-      }
+  set score(e){
+  this._score = e
+  }
 
-    set tour(e){
-    this._tour = e
+  get tour() {
+      return this._tour
     }
 
-    get dilemme_du_tour_objet() {
-        return this._dilemme_du_tour_objet
-      }
+  set tour(e){
+  this._tour = e
+  }
 
-    set dilemme_du_tour_objet(e){
-    this._dilemme_du_tour_objet = e
+  get dilemme_du_tour_objet() {
+      return this._dilemme_du_tour_objet
     }
 
-    get pays_etranger() {
-      return this._pays_etranger
-    }
+  set dilemme_du_tour_objet(e){
+  this._dilemme_du_tour_objet = e
+  }
 
-  set pays_etranger(e){
-  this._pays_etranger = e
+  get monde() {
+    return this._monde
+  }
+
+  set monde(e){
+  this._monde = e
   }
 
 }
