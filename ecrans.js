@@ -54,6 +54,7 @@ function set_bulma_modal(id_modal, openers_elements_ids, closers_elements_ids){
 	);
 }
 
+
 function updateliste(){
 	document.getElementById("affichage_choix_passes").innerHTML = ""
 	if (jeu.tour.observateurs != []){
@@ -66,17 +67,28 @@ function updateliste(){
 		});
 	}
 
+
 	document.getElementById("affichage_stats_pays").innerHTML = ""
 	if (jeu.monde._pays_etranger != []){
+		let affichage_tableau_pays = document.createElement("table")
+
 		jeu.monde._pays_etranger.forEach(pays => {
-			let p_pays = document.createElement("p");
-			let div_pays = document.createElement("div");
-			p_pays.innerHTML = "- " + pays.nom + " --- Population : " + pays.population + 
-			" --- Infrastructure : " + pays.infrastructure + " --- Prestige : " + pays.prestige +
-			" --- Corruption : " + pays.corruption
-			document.getElementById("affichage_stats_pays").appendChild(p_pays);
+			document.getElementById("affichage_stats_pays").appendChild(affichage_tableau_pays)
+			let tbody_pays = document.createElement("tbody")
+			affichage_tableau_pays.appendChild(tbody_pays);
+			let tr_pays = document.createElement("tr");
+			tbody_pays.appendChild(tr_pays)
+			let td_pays_nom = document.createElement("td")
+			let td_pays_population = document.createElement("td")
+			td_pays_nom.innerHTML = pays.nom
+			td_pays_population.innerHTML = pays.population
+			affichage_tableau_pays.appendChild(td_pays_nom)
+			affichage_tableau_pays.appendChild(td_pays_population)
 		if(jeu._joueur.influence >=1){
-			let button_infrastructure = document.createElement("input"); 
+			let td_btn_infrastructure = document.createElement("td")
+			let button_infrastructure = document.createElement("input");
+			affichage_tableau_pays.appendChild(td_btn_infrastructure)
+			td_btn_infrastructure.appendChild(button_infrastructure);  
 			button_infrastructure.id = "btnInfrastructure_pays_"+pays.nom;
 			button_infrastructure.type = "button"; 
 			button_infrastructure.className= "button is-small is-success";
@@ -84,8 +96,9 @@ function updateliste(){
 			button_infrastructure.addEventListener("click", () => {
 				fermer_bouton_infrastructure(button_infrastructure.id, pays); 
         }); 
-		document.getElementById("affichage_stats_pays").appendChild(div_pays);
-        div_pays.appendChild(button_infrastructure); 
+
+
+
 		}
 	});
 	
