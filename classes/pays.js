@@ -1,10 +1,11 @@
 class Pays {
 
-    constructor(nom, population, prestige, infrastructure){
+    constructor(nom, population, prestige, infrastructure, corruption){
         this._nom = nom;
         this._population = population;
         this._prestige = prestige;
         this._infrastructure = infrastructure
+        this._corruption = corruption
 
     // Éléments par défaut
         this._taux_croissance_population = 0.04;
@@ -36,6 +37,13 @@ class Pays {
     }
     set infrastructure(e){
         this._infrastructure = e
+    }
+
+    get corruption (){
+        return this._corruption
+    }
+    set corruption(e){
+        this._corruption = e
     }
 
     croissance_population (){

@@ -21,6 +21,18 @@ btn_affichage_stats.addEventListener("click", () => {
 	else {div_affichage_stats.classList.add("is-hidden")}
 	})	;
 
+function update_affichage(){
+	affichage_tour.innerHTML = jeu.tour.numero
+	affichage_score.innerHTML = jeu._joueur.score
+	affichage_influence.innerHTML = jeu._joueur.influence
+	image_modal_choix_dilemme.src = choix_random_image()
+}
+
+function choix_random_image(){
+	return liste_random_image[Math.floor(Math.random() * liste_random_image.length)]
+}
+
+
 const affichage_action_btn = document.querySelector("#modal_btn")
 
 set_bulma_modal("modal_intro", [], ["modal_intro_btn_close", "modal_intro_background", "btn_debut_partie_modal_card"])
@@ -60,16 +72,17 @@ function updateliste(){
 			let p_pays = document.createElement("p");
 			let div_pays = document.createElement("div");
 			p_pays.innerHTML = "- " + pays.nom + " --- Population : " + pays.population + 
-			" --- Infrastructure" + pays.infrastructure + " --- Prestige : " + pays.prestige
+			" --- Infrastructure : " + pays.infrastructure + " --- Prestige : " + pays.prestige +
+			" --- Corruption : " + pays.corruption
 			document.getElementById("affichage_stats_pays").appendChild(p_pays);
 		if(jeu._joueur.influence >=1){
-        let button_infrastructure = document.createElement("input"); 
-        button_infrastructure.id = "btnInfrastructure_pays_"+pays.nom;
-        button_infrastructure.type = "button"; 
-        button_infrastructure.class= "button is-small is-warning";
-        button_infrastructure.value= "+Infrastructure";
-        button_infrastructure.addEventListener("click", () => {
-			fermer_bouton_infrastructure(button_infrastructure.id, pays); 
+			let button_infrastructure = document.createElement("input"); 
+			button_infrastructure.id = "btnInfrastructure_pays_"+pays.nom;
+			button_infrastructure.type = "button"; 
+			button_infrastructure.className= "button is-small is-success";
+			button_infrastructure.value= "+Infrastructure";
+			button_infrastructure.addEventListener("click", () => {
+				fermer_bouton_infrastructure(button_infrastructure.id, pays); 
         }); 
 		document.getElementById("affichage_stats_pays").appendChild(div_pays);
         div_pays.appendChild(button_infrastructure); 
@@ -86,7 +99,7 @@ function fermer_bouton_infrastructure(button_id, pays){
 		pays.infrastructure+=100
 		jeu._joueur.influence-=1
 		document.getElementById(button_id).remove()
-		updateliste()
+		update_affichage()
 	}
   }
 

@@ -26,33 +26,33 @@
             />
           </figure>
         </div>
-        <div class="column"></div>
-      </div>
-
-      <div class="content">
-        <button
-          type="button"
-          class="button is-success"
-          id="btn_affichage_stats"
-        >
-          Afficher stats
-        </button>
-        <div class="is-hidden" id="div_affichage_stats">
-          <div>Tour :</div>
-          <div id="affichage_tour">1</div>
-          <div>Score :</div>
-          <div id="affichage_score">0</div>
-          <div>Influence :</div>
-          <div id="affichage_influence">3</div>
-          <div id="affichage_stats_pays"></div>
-        </div>
-        <button type="button" class="button is-success" id="modal_btn">
-          Boutton commencer
-        </button>
-        <div class="box">
+        <div class="column">
           <div class="content">
-            <h1>Les choix passés</h1>
-            <div id="affichage_choix_passes"></div>
+            <button type="button" class="button is-success" id="modal_btn">
+              Boutton commencer
+            </button>
+            <button
+              type="button"
+              class="button is-success"
+              id="btn_affichage_stats"
+            >
+              Afficher stats
+            </button>
+            <div class="is-hidden" id="div_affichage_stats">
+              <div>Tour :</div>
+              <div id="affichage_tour">1</div>
+              <div>Score :</div>
+              <div id="affichage_score">0</div>
+              <div>Influence :</div>
+              <div id="affichage_influence">3</div>
+              <div id="affichage_stats_pays"></div>
+            </div>
+            <div class="box">
+              <div class="content">
+                <h1>Les choix passés</h1>
+                <div id="affichage_choix_passes"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -113,7 +113,12 @@
         </header>
 
         <section class="modal-card-body">
-          <div class="box" id="affichage_modal_intro">
+          <div class="box">
+            Nous sommes dans une sorte de monde inspiré du nôtre en 1820. Les
+            statistiques sont vraiment créativement inspirés des données de
+            Wikipédia et d'ailleurs (et de mon inagination).
+          </div>
+          <div class="box">
             Vous ferez face à plusieurs dilemmes. Il faudra alors choisir lequel
             est le plus pertinent. Soyez averti qu'il n'y aura pas d'autres
             informations que les options. Il n'y a pas vraiment de thème.
@@ -135,8 +140,6 @@
         ></button>
       </div>
     </div>
-
-    <!-- Scripts -->
   </body>
   <footer class="footer">
     <div class="container">
@@ -149,6 +152,8 @@
       </div>
     </div>
   </footer>
+
+  <!-- Scripts -->
 
   <script type="text/javascript" src="variables_globales.js"></script>
   <script type="text/javascript" src="ecrans.js"></script>
@@ -163,7 +168,7 @@
   <script type="text/javascript" src="factories/pays_factory.js"></script>
 
   <script type="text/javascript" src="ressources/utilitaires.js"></script>
-  <script type="text/javascript" src="ressources/liste_evenements.js"></script>
+  <script type="text/javascript" src="ressources/liste_dilemmes.js"></script>
   <script type="text/javascript" src="ressources/liste_pays.js"></script>
 
   <script type="text/javascript" src="ressources/liste_trucs.js"></script>

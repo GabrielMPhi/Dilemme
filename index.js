@@ -14,17 +14,6 @@ function ajouter_les_observateurs(){
 	ajouter_dans_listeobservateur_tour(jeu._joueur)
 }
 
-function update_affichage(){
-	affichage_tour.innerHTML = jeu.tour.numero
-	affichage_score.innerHTML = jeu._joueur.score
-	updateliste()
-	image_modal_choix_dilemme.src = choix_random_image()
-}
-
-function choix_random_image(){
-	return liste_random_image[Math.floor(Math.random() * liste_random_image.length)]
-}
-
 affichage_action_btn.onclick = function changement_de_tour_affichage(){
     let dilemme_fabrique_du_tour = selection_des_choix()
 	jeu.dilemme_du_tour_objet = dilemme_fabrique_du_tour()
