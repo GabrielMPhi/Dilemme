@@ -71,6 +71,16 @@ function updateliste(){
 	document.getElementById("affichage_stats_pays").innerHTML = ""
 	if (jeu.monde._pays_etranger != []){
 		let affichage_tableau_pays = document.createElement("table")
+		affichage_tableau_pays.createTHead()
+		let titre_pays_nom = document.createElement("th")
+		let titre_pays_population = document.createElement("th")
+		let titre_actions = document.createElement("th")
+		titre_pays_nom.innerHTML = "Nom du pays"
+		titre_pays_population.innerHTML = "Population"
+		titre_actions.innerHTML = "Actions"
+		affichage_tableau_pays.appendChild(titre_pays_nom)
+		affichage_tableau_pays.appendChild(titre_pays_population)
+		affichage_tableau_pays.appendChild(titre_actions)
 
 		jeu.monde._pays_etranger.forEach(pays => {
 			document.getElementById("affichage_stats_pays").appendChild(affichage_tableau_pays)
