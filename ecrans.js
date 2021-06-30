@@ -48,14 +48,15 @@ function set_bulma_modal(id_modal, openers_elements_ids, closers_elements_ids){
 	
 	closers_elements_ids.forEach(element =>
 		document.getElementById(element).addEventListener('click', () => {
-			updateliste()
+			update_liste_choix()
+			update_affichage_pays()
 			modal.classList.remove("is-active");		
 		})
 	);
 }
 
 
-function updateliste(){
+function update_liste_choix(){
 	document.getElementById("affichage_choix_passes").innerHTML = ""
 	if (jeu.tour.observateurs != []){
 		let liste_choix = jeu.tour.observateurs.filter(element => element instanceof Choix)
@@ -66,7 +67,9 @@ function updateliste(){
 			document.getElementById("affichage_choix_passes").appendChild(p_choix);
 		});
 	}
+}
 
+function update_affichage_pays(){
 
 	document.getElementById("affichage_stats_pays").innerHTML = ""
 	if (jeu.monde._pays_etranger != []){
@@ -74,12 +77,15 @@ function updateliste(){
 		affichage_tableau_pays.createTHead()
 		let titre_pays_nom = document.createElement("th")
 		let titre_pays_population = document.createElement("th")
+		let titre_pays_infrastructure = document.createElement("th")
 		let titre_actions = document.createElement("th")
 		titre_pays_nom.innerHTML = "Nom du pays"
 		titre_pays_population.innerHTML = "Population"
+		titre_pays_infrastructure.innerHTML = "Infrastructure"
 		titre_actions.innerHTML = "Actions"
 		affichage_tableau_pays.appendChild(titre_pays_nom)
 		affichage_tableau_pays.appendChild(titre_pays_population)
+		affichage_tableau_pays.appendChild(titre_pays_infrastructure)
 		affichage_tableau_pays.appendChild(titre_actions)
 
 		jeu.monde._pays_etranger.forEach(pays => {
@@ -90,26 +96,30 @@ function updateliste(){
 			tbody_pays.appendChild(tr_pays)
 			let td_pays_nom = document.createElement("td")
 			let td_pays_population = document.createElement("td")
+			let td_pays_infrastructure = document.createElement("td")
 			td_pays_nom.innerHTML = pays.nom
 			td_pays_population.innerHTML = pays.population
+			td_pays_infrastructure.innerHTML = pays.infrastructure
 			affichage_tableau_pays.appendChild(td_pays_nom)
 			affichage_tableau_pays.appendChild(td_pays_population)
-		if(jeu._joueur.influence >=1){
-			let td_btn_infrastructure = document.createElement("td")
-			let button_infrastructure = document.createElement("input");
-			affichage_tableau_pays.appendChild(td_btn_infrastructure)
-			td_btn_infrastructure.appendChild(button_infrastructure);  
-			button_infrastructure.id = "btnInfrastructure_pays_"+pays.nom;
-			button_infrastructure.type = "button"; 
-			button_infrastructure.className= "button is-small is-success";
-			button_infrastructure.value= "+Infrastructure";
-			button_infrastructure.addEventListener("click", () => {
-				fermer_bouton_infrastructure(button_infrastructure.id, pays); 
-        }); 
+			affichage_tableau_pays.appendChild(td_pays_infrastructure)
+		
+			if(jeu._joueur.influence >=1){
+				let td_btn_infrastructure = document.createElement("td")
+				let button_infrastructure = document.createElement("input");
+				affichage_tableau_pays.appendChild(td_btn_infrastructure)
+				td_btn_infrastructure.appendChild(button_infrastructure);  
+				button_infrastructure.id = "btnInfrastructure_pays_"+pays.nom;
+				button_infrastructure.type = "button"; 
+				button_infrastructure.className= "button is-small is-success";
+				button_infrastructure.value= "+Infrastructure";
+				button_infrastructure.addEventListener("click", () => {
+					fermer_bouton_infrastructure(button_infrastructure.id, pays); 
+        		}); 
 
 
 
-		}
+			}
 	});
 	
 	}
@@ -123,6 +133,7 @@ function fermer_bouton_infrastructure(button_id, pays){
 		jeu._joueur.influence-=1
 		document.getElementById(button_id).remove()
 		update_affichage()
+		update_affichage_pays()
 	}
   }
 

@@ -1,10 +1,11 @@
 class Jeu {
 
-    constructor(score, influence, liste_pays){
+    constructor(score, influence, liste_pays, liste_de_personnages){
         this._tour=new Tour()
         this._joueur= new Joueur (score, influence)
         this._dilemme_du_tour_objet = []
         this._monde = new Monde (liste_pays)
+        this._personnages = liste_de_personnages
     }
     
   get joueur() {
@@ -38,5 +39,14 @@ class Jeu {
   set monde(e){
   this._monde = e
   }
+
+  get personnages() {
+    return this._personnages
+  }
+
+  set personnages(e){
+  this._personnages = e
+  }
+
 
 }

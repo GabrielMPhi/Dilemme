@@ -3,11 +3,13 @@ function(){
 	initialisation_dilemme();
 	ajouter_les_observateurs();
 	update_affichage();
+	creer_liste_personnage(nombre_de_personnage);
 	modal_intro.classList.add("is-active")
 })
 
 function initialisation_dilemme(){
 	jeu = new Jeu(0, 3, liste_de_pays_etranger)
+	update_affichage_pays()
 }
 function ajouter_les_observateurs(){
 	ajouter_dans_listeobservateur_tour(jeu._monde)
@@ -21,14 +23,21 @@ affichage_action_btn.onclick = function changement_de_tour_affichage(){
 	modal_option1.innerHTML = jeu.dilemme_du_tour_objet.choix_1.nom_choix
 	modal_option2.innerHTML = jeu.dilemme_du_tour_objet.choix_2.nom_choix
 	update_affichage()
-	console.log(jeu._joueur._influence)
-	console.log(jeu._monde._pays_etranger)
+	update_liste_choix()
+	update_affichage_pays()
 }
 
 function selection_des_choix(){
     let choix_du_tour_numero = getRandomInt(liste_des_choix.length)
 	return liste_des_choix[choix_du_tour_numero]
 }
+
+function creer_liste_personnage(nb_perso){
+	let personnage_factory = new PersonnageFactory()
+	for (let i = 0; i < nb_perso; i++){
+		liste_des_personnages.push(personnage_factory.creer_personnage())
+		};
+	}
 
 
 
