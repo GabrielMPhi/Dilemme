@@ -6,7 +6,14 @@ let factory_dilemme = new Dilemme_factory();
 function methode_investir_en_france() {
     jeu._monde._pays_etranger[index_de_france].infrastructure += 100 
     jeu.influence+=1
-    liste_des_choix.push(dilemme_france_dette_1)
+    console.log(liste_des_choix)
+    if (liste_des_choix.indexOf(dilemme_france_dette_1) != -1 ){
+        console.log(liste_des_choix.indexOf(dilemme_france_dette_1))
+        console.log("L'événement est déjà là")
+    } else {
+        liste_des_choix.push(dilemme_france_dette_1)
+    }
+    
 }
 
 function methode_investir_en_russie() {
@@ -88,9 +95,9 @@ let dilemme_philosophique_2 = function() { return factory_dilemme.getDilemme(
     }
 )}
 
-// liste_des_choix.push(dilemme1)
+liste_des_choix.push(dilemme1)
 
-liste_des_choix.push(dilemme1, dilemme2, dilemme3, dilemme4, dilemme_philosophique_1, dilemme_philosophique_2)
+// liste_des_choix.push(dilemme1, dilemme2, dilemme3, dilemme4, dilemme_philosophique_1, dilemme_philosophique_2)
 
 // Liste des événements de fin de partie
 
