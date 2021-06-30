@@ -16,6 +16,24 @@ function methode_investir_en_france() {
     
 }
 
+// function génériques
+
+function score_agmente(a){
+    jeu.joueur.score+=a
+}
+
+function random_pays_infrasctructure_boost(){
+    let pays_choisi = jeu.monde._pays_etranger[Math.floor(Math.random() * jeu._monde._pays_etranger.length)]
+    console.log(pays_choisi)
+    console.log(pays_choisi.infrastructure)
+    pays_choisi.infrastructure+=1
+}
+
+
+
+
+// function effets pays
+
 function methode_investir_en_russie() {
     jeu._monde._pays_etranger[index_de_russie].infrastructure += 100 
 }
@@ -82,8 +100,8 @@ let dilemme_france_dette_1 = function() { return factory_dilemme.getDilemme(
 let dilemme_philosophique_1 = function() { return factory_dilemme.getDilemme(
     {
         texte : "<b>Aristote</b> ou <b>Machiavel</b>?",
-        choix_1 : {nom_choix: "Aristote", effet: 10, delai: 3, repetition:true},
-        choix_2 : {nom_choix: "Machiavel", effet: 5, delai: 3, repetition:true}
+        choix_1 : {nom_choix: "Aristote", effet: score_agmente(5), delai: 3, repetition:true},
+        choix_2 : {nom_choix: "Machiavel", effet: random_pays_infrasctructure_boost, delai: 3, repetition:false}
     }
 )}
 
@@ -95,9 +113,9 @@ let dilemme_philosophique_2 = function() { return factory_dilemme.getDilemme(
     }
 )}
 
-liste_des_choix.push(dilemme1)
+// liste_des_choix.push(dilemme_philosophique_1)
 
-// liste_des_choix.push(dilemme1, dilemme2, dilemme3, dilemme4, dilemme_philosophique_1, dilemme_philosophique_2)
+liste_des_choix.push(dilemme1, dilemme2, dilemme3, dilemme4, dilemme_philosophique_1, dilemme_philosophique_2)
 
 // Liste des événements de fin de partie
 
