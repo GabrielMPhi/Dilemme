@@ -2,13 +2,14 @@ window.addEventListener('load',
 function(){
 	initialisation_dilemme();
 	ajouter_les_observateurs();
-	update_affichage();
-	creer_liste_personnage(nombre_de_personnage);
+	update_affichage();;
 	modal_intro.classList.add("is-active")
 })
 
 function initialisation_dilemme(){
-	jeu = new Jeu(0, 3, liste_de_pays_etranger)
+	creer_liste_personnage(nombre_de_personnage)
+	jeu = new Jeu(0, 3, liste_de_pays_etranger, liste_des_personnages)
+	console.log(jeu)
 	update_affichage_pays()
 }
 function ajouter_les_observateurs(){
