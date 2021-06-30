@@ -6,10 +6,7 @@ let factory_dilemme = new Dilemme_factory();
 function methode_investir_en_france() {
     jeu._monde._pays_etranger[index_de_france].infrastructure += 100 
     jeu.influence+=1
-    console.log(liste_des_choix)
     if (liste_des_choix.indexOf(dilemme_france_dette_1) != -1 ){
-        console.log(liste_des_choix.indexOf(dilemme_france_dette_1))
-        console.log("L'événement est déjà là")
     } else {
         liste_des_choix.push(dilemme_france_dette_1)
     }
@@ -18,14 +15,8 @@ function methode_investir_en_france() {
 
 // function génériques
 
-function score_agmente(a){
-    jeu.joueur.score+=a
-}
-
 function random_pays_infrasctructure_boost(){
     let pays_choisi = jeu.monde._pays_etranger[Math.floor(Math.random() * jeu._monde._pays_etranger.length)]
-    console.log(pays_choisi)
-    console.log(pays_choisi.infrastructure)
     pays_choisi.infrastructure+=1
 }
 
@@ -53,6 +44,8 @@ function methode_investir_en_suede() {
 function methode_investir_au_danemark() {
     jeu._monde._pays_etranger[index_de_danemark].infrastructure += 100 
 }
+
+
 
 
 // Liste des événements du départ
@@ -97,11 +90,19 @@ let dilemme_france_dette_1 = function() { return factory_dilemme.getDilemme(
     }
 )}
 
+let machiavel_revient = function() { return factory_dilemme.getDilemme(
+    {
+        texte : "Machiavel est de retour!",
+        choix_1 : {nom_choix: "L'engager!", effet: engager_machiavel, delai: 5, repetition:false},
+        choix_2 : {nom_choix: "Non! Ne pas l'engager", effet: 10, delai: 1 + getRandomInt(7), repetition:false}
+    }
+)}
+
 let dilemme_philosophique_1 = function() { return factory_dilemme.getDilemme(
     {
         texte : "<b>Aristote</b> ou <b>Machiavel</b>?",
-        choix_1 : {nom_choix: "Aristote", effet: score_agmente(5), delai: 3, repetition:true},
-        choix_2 : {nom_choix: "Machiavel", effet: random_pays_infrasctructure_boost, delai: 3, repetition:false}
+        choix_1 : {nom_choix: "Aristote", effet: 1, delai: 3, repetition:true},
+        choix_2 : {nom_choix: "Machiavel", effet: random_pays_infrasctructure_boost, delai: 1, repetition:false}
     }
 )}
 
@@ -117,14 +118,3 @@ let dilemme_philosophique_2 = function() { return factory_dilemme.getDilemme(
 
 liste_des_choix.push(dilemme1, dilemme2, dilemme3, dilemme4, dilemme_philosophique_1, dilemme_philosophique_2)
 
-// Liste des événements de fin de partie
-
-let dilemme_final_1 = function() { return factory_dilemme.getDilemme(
-    {
-        texte : "Doit-on <b>finir la partie</b> ou <b>continuer à jouer</b>?",
-        choix_1 : {nom_choix: "Finir la partie", effet: getRandomInt(10), delai: 1 + getRandomInt(5)},
-        choix_2 : {nom_choix: "Continuer à jouer", effet: getRandomInt(10), delai: 1 + getRandomInt(5)}
-    }
-)}
-let liste_des_choix_fin_de_partie = [];
-liste_des_choix_fin_de_partie.push(dilemme_final_1)

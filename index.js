@@ -7,9 +7,9 @@ function(){
 })
 
 function initialisation_dilemme(){
-	creer_liste_personnage(nombre_de_personnage)
-	jeu = new Jeu(0, 3, liste_de_pays_etranger, liste_des_personnages)
-	console.log(jeu)
+	let liste_jeu_personnages=  creer_liste_personnage(nombre_de_personnage)
+	let liste_des_agents = creer_liste_personnage(4)
+	jeu = new Jeu(0, 3, liste_de_pays_etranger, liste_jeu_personnages, liste_des_agents)
 	update_affichage_pays()
 }
 function ajouter_les_observateurs(){
@@ -35,10 +35,9 @@ function selection_des_choix(){
 
 function creer_liste_personnage(nb_perso){
 	let personnage_factory = new PersonnageFactory()
+	let liste_perso_a_retourner = []
 	for (let i = 0; i < nb_perso; i++){
-		liste_des_personnages.push(personnage_factory.creer_personnage())
+		liste_perso_a_retourner.push(personnage_factory.creer_personnage())
 		};
+	return liste_perso_a_retourner
 	}
-
-
-

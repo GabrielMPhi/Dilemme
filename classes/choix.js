@@ -23,7 +23,7 @@ class Choix{
 
     appliquer_effet(){
         if (Number.isInteger(this.effet)){
-            jeu.score += this.effet
+            jeu.monde.danger += this.effet
             } 
         if (typeof this.effet === "function") {
             this.effet()
