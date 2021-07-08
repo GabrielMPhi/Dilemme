@@ -77,7 +77,7 @@ class Pays {
         let croissance_econ_reelle = (this._taux_croissance_economie - (this._corruption / 100)).toFixed(2)
 
         //Cout corruption
-        this._cout_corruption = this._corruption + parseInt((this._infrastructure/100),10)
+        this._cout_corruption = parseInt(100-this._corruption) + parseInt((this._infrastructure/100),10)
 
 
 

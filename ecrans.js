@@ -167,7 +167,7 @@ function update_affichage_pays() {
         button_influence.id = "btnInfluence_pays_" + pays.nom;
         button_influence.type = "button";
         button_influence.className = "button is-small is-success";
-        button_influence.value = "+Influence";
+        button_influence.value = `+Influence. Cout : ${pays.cout_corruption}`;
         button_influence.addEventListener("click", () => {
           pays.influence_du_joueur += 1;
           jeu._joueur.ressources -= pays.cout_corruption;
