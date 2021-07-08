@@ -2,7 +2,7 @@ class Joueur {
 
     constructor(score, influence, agents){
         this._score= score
-        this._ressources = 1400
+        this._ressources = 100
         this._influence= influence
         this._agents = agents
     }

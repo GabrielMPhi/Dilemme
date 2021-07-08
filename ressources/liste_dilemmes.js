@@ -21,6 +21,9 @@ function random_pays_infrasctructure_boost(){
 }
 
 
+// faire des événements du genre : choisir entre une guerre entre x et y ou une autre chose de valeur ou éthique... ajouter cout éthique du choix dans les stats.
+// faire qu'entretenir de l'influence a un coût.
+// Réfléchir la question du mana. Est-ce qu'on veut du mana qui recharge ou un truc du genre, il faut un équilibre. Pour tester les mécaniques, peut-être les 2?
 
 
 // function effets pays

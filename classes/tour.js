@@ -1,6 +1,6 @@
 class Tour {
     constructor(){
-      this.numero = 1;
+      this.numero = 0;
       this.observateurs = [];
     }
   
