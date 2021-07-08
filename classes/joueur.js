@@ -1,9 +1,8 @@
 class Joueur {
 
-    constructor(score, influence, agents){
+    constructor(score, agents){
         this._score= score
         this._ressources = 100
-        this._influence= influence
         this._agents = agents
     }
 
@@ -19,13 +18,6 @@ class Joueur {
     }
     set ressources(e){
         this._ressources = e
-    }
-
-    get influence (){
-        return this._influence
-    }
-    set influence(e){
-        this._influence = e
     }
 
     get agents (){

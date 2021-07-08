@@ -12,7 +12,7 @@ function initialisation_dilemme(){
 
 	let liste_jeu_personnages=  creer_liste_personnage(nombre_de_personnage)
 	let liste_des_agents = creer_liste_personnage(4)
-	jeu = new Jeu(0, 3, liste_de_pays_etranger, liste_jeu_personnages, liste_des_agents)
+	jeu = new Jeu(0, liste_de_pays_etranger, liste_jeu_personnages, liste_des_agents)
 	update_affichage_pays()
 	console.log(jeu._monde)
 }

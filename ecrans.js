@@ -4,7 +4,6 @@ const image_modal_choix_dilemme = document.querySelector(
 const affichage_tour = document.querySelector("#affichage_tour");
 const affichage_score = document.querySelector("#affichage_score");
 const affichage_danger = document.querySelector("#affichage_danger");
-const affichage_influence = document.querySelector("#affichage_influence");
 const affichage_ressources = document.querySelector("#affichage_ressources");
 const affichage_choix_passes = document.querySelector(
   "#affichage_choix_passes"
@@ -47,7 +46,6 @@ function update_affichage() {
   affichage_tour.innerHTML = jeu.tour.numero;
   affichage_score.innerHTML = jeu._joueur.score;
   affichage_danger.innerHTML = jeu.monde.danger;
-  affichage_influence.innerHTML = jeu._joueur.influence;
   affichage_ressources.innerHTML = jeu._joueur.ressources;
   image_modal_choix_dilemme.src = choix_random_image();
 }
