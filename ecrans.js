@@ -45,7 +45,7 @@ btn_affichage_stats.addEventListener("click", () => {
 function update_affichage() {
   affichage_tour.innerHTML = jeu.tour.numero;
   affichage_score.innerHTML = jeu._joueur.score;
-  affichage_danger.innerHTML = jeu.monde.danger;
+  affichage_danger.innerHTML = jeu.joueur.danger;
   affichage_ressources.innerHTML = jeu._joueur.ressources;
   image_modal_choix_dilemme.src = choix_random_image();
 }
@@ -162,7 +162,6 @@ function update_affichage_pays() {
       affichage_tableau_pays.appendChild(td_btn_actions);
 
       if (jeu.joueur.ressources >= pays.cout_corruption) {
-        console.log(pays.nom + " " +pays.cout_corruption)
         let button_influence = document.createElement("input");
         td_btn_actions.appendChild(button_influence);
         button_influence.id = "btnInfluence_pays_" + pays.nom;
