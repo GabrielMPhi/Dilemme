@@ -212,6 +212,7 @@ function update_affichage_pays() {
 
 function function_passer_tour_simple(){
   jeu.tour.augmenter();
+  update_liste_choix();
   update_affichage();
   update_affichage_pays();
 }
@@ -224,10 +225,12 @@ function fermer_bouton_action(button_id) {
 
 modal_option1.onclick = function changement_de_tour_modal() {
   jeu.tour.augmenter();
+  update_liste_choix();
   update_affichage();
 };
 
 modal_option2.onclick = function changement_de_tour_modal() {
   jeu.tour.augmenter();
+  update_liste_choix();
   update_affichage();
 };

@@ -11,9 +11,12 @@ class Choix{
             this.appliquer_effet()
         }
 
-        if (this.delai > 1){
+        if (this.delai > 0){
+            console.log("Delai diminuer")
+            console.log(this.delai)
             this.delai--
-        } else if (this.delai <= 1 && !this.repetition){
+            console.log(this.delai)
+        } else if (this.delai <= 0 && !this.repetition){
             this.appliquer_effet()
             observe.observateurs = arrayRemove(observe.observateurs, this)
         } else {

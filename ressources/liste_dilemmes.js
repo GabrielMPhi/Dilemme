@@ -29,25 +29,36 @@ function random_pays_infrasctructure_boost(){
 // function effets pays
 
 function methode_investir_en_russie() {
-    jeu._monde._pays_etranger[index_de_russie].infrastructure += 100 
+    jeu._monde._pays_etranger[index_de_russie].infrastructure += 1
+    jeu.joueur.ressources += jeu._monde._pays_etranger[index_de_russie].infrastructure
 }
 
 function methode_investir_aux_etats_unis() {
-    jeu._monde._pays_etranger[index_de_etats_unis].infrastructure += 100 
+    jeu._monde._pays_etranger[index_de_etats_unis].infrastructure += 1 
 }
 
 function methode_investir_dans_empire_qing() {
-    jeu._monde._pays_etranger[index_de_empire_qing].infrastructure += 100 
+    jeu._monde._pays_etranger[index_de_empire_qing].infrastructure += 1 
 }
 
 function methode_investir_en_suede() {
-    jeu._monde._pays_etranger[index_de_suede].infrastructure += 100 
+    jeu._monde._pays_etranger[index_de_suede].infrastructure += 1 
 }
 
 function methode_investir_au_danemark() {
-    jeu._monde._pays_etranger[index_de_danemark].infrastructure += 100 
+    jeu._monde._pays_etranger[index_de_danemark].infrastructure += 1 
 }
 
+function methode_corrompre_en_russie() {
+    if (jeu.joueur.ressources >= jeu._monde._pays_etranger[index_de_russie].infrastructure){
+    jeu._monde._pays_etranger[index_de_russie].corruption += 2
+    jeu.joueur.influence_du_joueur +=1
+    jeu.joueur.ressources -= jeu._monde._pays_etranger[index_de_russie].infrastructure
+    } else {
+        jeu._monde._pays_etranger[index_de_russie].corruption += 2
+        jeu.joueur.danger += 1
+    }
+}
 
 
 
@@ -55,9 +66,9 @@ function methode_investir_au_danemark() {
 
 let dilemme1 = function() { return factory_dilemme.getDilemme(
     {
-        texte : "Doit-on investir en <b>France</b> ou en <b>Russie</b>?",
-        choix_1 : {nom_choix: "Investir en France", effet: methode_investir_en_france, delai: 2, repetition:false},
-        choix_2 : {nom_choix: "Investir en Russie", effet: methode_investir_en_russie, delai: 10, repetition:false}
+        texte : "Une opportunité d'investissement est apparue en Russie. Que doit-on faire? Doit-on investir en <b>profiter légalement de cette opportunité</b> ou bien maximiser nos avantages par <b>la corruption</b>? Nous ne savons pas exactement combien coûtera la corruption, cela risque de nous faire détecter.",
+        choix_1 : {nom_choix: "Investir légalement en Russie", effet: methode_investir_en_russie, delai: 2, repetition:false},
+        choix_2 : {nom_choix: "Tenter la corruption et créer un réseau d'agents", effet: methode_corrompre_en_russie, delai: 3, repetition:true}
     }
 )}
 
@@ -117,7 +128,7 @@ let dilemme_philosophique_2 = function() { return factory_dilemme.getDilemme(
     }
 )}
 
-// liste_des_choix.push(dilemme_philosophique_1)
+//liste_des_choix.push(dilemme1)
 
 liste_des_choix.push(dilemme1, dilemme2, dilemme3, dilemme4, dilemme_philosophique_1, dilemme_philosophique_2)
 
