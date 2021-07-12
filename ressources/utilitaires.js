@@ -20,3 +20,15 @@ function arrayRemove(arr, value){
 function ajouter_dans_listeobservateur_tour(objet){
 	jeu.tour.observateurs.push(objet)
 }
+
+
+function disableButtons(buttonName){
+    console.log(buttonName)
+    buttonName.disabled = true
+    console.log(buttonName)
+}
+
+
+function enableButtons(buttonName){
+    buttonName.disabled = false
+}
