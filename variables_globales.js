@@ -1,6 +1,7 @@
 let liste_choix_en_attente = []
 let liste_choix_passes = []
 let liste_des_choix = []
+let liste_avantages = []
 let jeu
 let nombre_de_personnage = 14
 let liste_des_personnages = []

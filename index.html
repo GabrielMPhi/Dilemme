@@ -48,10 +48,19 @@
             <button
               type="button"
               class="button is-success"
-              id="btn_affichage_stats"
+              id="btn_affichage_pays"
             >
-              Afficher stats
+              Afficher Pays
             </button>
+
+            <button
+              type="button"
+              class="button is-success"
+              id="btn_affichage_avantages"
+            >
+              Afficher Avantages
+            </button>
+
             <div>Tour :</div>
             <div id="affichage_tour">1</div>
             <div>Score :</div>
@@ -60,8 +69,9 @@
             <div id="affichage_ressources">0</div>
             <div>Danger :</div>
             <div id="affichage_danger">0</div>
+            <div class="is-hidden" id="div_affichage_avantages"></div>
 
-            <div class="is-hidden" id="div_affichage_stats">
+            <div class="is-hidden" id="div_affichage_pays">
               <div>Influence :</div>
               <div id="affichage_influence">3</div>
               <div id="affichage_stats_pays"></div>
@@ -200,10 +210,12 @@
   <script type="text/javascript" src="classes/jeu.js"></script>
   <script type="text/javascript" src="classes/dilemme.js"></script>
   <script type="text/javascript" src="classes/personnage.js"></script>
+  <script type="text/javascript" src="classes/avantage.js"></script>
 
   <script type="text/javascript" src="factories/dilemme_factory.js"></script>
   <script type="text/javascript" src="factories/pays_factory.js"></script>
   <script type="text/javascript" src="factories/personnage_factory.js"></script>
+  <script type="text/javascript" src="factories/avantage_factory.js"></script>
 
   <script type="text/javascript" src="ressources/utilitaires.js"></script>
   <script type="text/javascript" src="ressources/liste_dilemmes.js"></script>
@@ -213,6 +225,7 @@
     src="ressources/liste_noms_personnage.js"
   ></script>
   <script type="text/javascript" src="ressources/liste_personnages.js"></script>
+  <script type="text/javascript" src="ressources/liste_avantages.js"></script>
 
   <script type="text/javascript" src="ressources/liste_trucs.js"></script>
   <script type="text/javascript" src="index.js"></script>

@@ -3,7 +3,7 @@ function(){
 	initialisation_dilemme();
 	ajouter_les_observateurs();
 	jeu.tour.augmenter();
-	update_affichage();
+	update_affichage_joueur();
 	modal_intro.classList.add("is-active")
 })
 
@@ -12,7 +12,7 @@ function initialisation_dilemme(){
 
 	let liste_jeu_personnages=  creer_liste_personnage(nombre_de_personnage)
 	let liste_des_agents = creer_liste_personnage(4)
-	jeu = new Jeu(0, liste_de_pays_etranger, liste_jeu_personnages, liste_des_agents)
+	jeu = new Jeu(0, liste_de_pays_etranger, liste_jeu_personnages, liste_des_agents, liste_avantages)
 	update_affichage_pays()
 	console.log(jeu._monde)
 }
@@ -27,7 +27,7 @@ affichage_action_btn.onclick = function changement_de_tour_affichage(){
     affichage_choix_a_faire_texte.innerHTML = jeu.dilemme_du_tour_objet.texte
 	modal_option1.innerHTML = jeu.dilemme_du_tour_objet.choix_1.nom_choix
 	modal_option2.innerHTML = jeu.dilemme_du_tour_objet.choix_2.nom_choix
-	update_affichage()
+	update_affichage_joueur()
 	update_liste_choix()
 	update_affichage_pays()
 }

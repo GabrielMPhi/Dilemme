@@ -31,22 +31,36 @@ btn_passer_tour_simple.addEventListener("click", () => {
 
 
 
-const btn_affichage_stats = document.querySelector("#btn_affichage_stats");
-const div_affichage_stats = document.querySelector("#div_affichage_stats");
+const btn_affichage_pays = document.querySelector("#btn_affichage_pays");
+const div_affichage_pays = document.querySelector("#div_affichage_pays");
 
-btn_affichage_stats.addEventListener("click", () => {
-  if (div_affichage_stats.classList.contains("is-hidden")) {
-    div_affichage_stats.classList.remove("is-hidden");
+btn_affichage_pays.addEventListener("click", () => {
+  if (div_affichage_pays.classList.contains("is-hidden")) {
+    div_affichage_pays.classList.remove("is-hidden");
   } else {
-    div_affichage_stats.classList.add("is-hidden");
+    div_affichage_pays.classList.add("is-hidden");
   }
 });
 
-function update_affichage() {
+const affichage_avantages = document.querySelector("#div_affichage_avantages")
+const btn_affichage_avantages = document.querySelector("#btn_affichage_avantages")
+
+btn_affichage_avantages.addEventListener("click", () => {
+  if (affichage_avantages.classList.contains("is-hidden")) {
+    affichage_avantages.classList.remove("is-hidden");
+  } else {
+    affichage_avantages.classList.add("is-hidden");
+  }
+});
+
+
+
+function update_affichage_joueur() {
   affichage_tour.innerHTML = jeu.tour.numero;
   affichage_score.innerHTML = jeu._joueur.score;
   affichage_danger.innerHTML = jeu.joueur.danger;
   affichage_ressources.innerHTML = jeu._joueur.ressources;
+  update_affichage_avantages()
   image_modal_choix_dilemme.src = choix_random_image();
 }
 
@@ -103,6 +117,41 @@ function update_liste_choix() {
     });
   }
 }
+
+function update_affichage_avantages() {
+  affichage_avantages.innerHTML = "";
+  if (jeu.joueur.liste_avantages != []) {
+    let affichage_tableau_avantages = document.createElement("table");
+    affichage_tableau_avantages.createTHead();
+    let nom_avantage = document.createElement("th");
+    let action_avantage = document.createElement("th");
+    nom_avantage.innerHTML = "Nom de l'avantage";
+    action_avantage.innerHTML = "Action liée à l'avantage"
+    affichage_tableau_avantages.appendChild(nom_avantage)
+    affichage_tableau_avantages.appendChild(action_avantage)
+
+    jeu.joueur.liste_avantages.forEach((avantage) => {
+      
+      if (avantage.actif == false){
+        affichage_avantages.appendChild(affichage_tableau_avantages);
+        let tbody_avantage = document.createElement("tbody");
+        affichage_tableau_avantages.appendChild(tbody_avantage);
+        let tr_avantage = document.createElement("tr");
+        tbody_avantage.appendChild(tr_avantage);
+        let tr_avantage_nom = document.createElement("td");
+        tr_avantage_nom.innerHTML=avantage.nom
+        
+        affichage_tableau_avantages.appendChild(tr_avantage_nom)
+
+
+      }
+
+    })
+
+  }
+
+}
+
 
 function update_affichage_pays() {
   document.getElementById("affichage_stats_pays").innerHTML = "";
@@ -213,24 +262,24 @@ function update_affichage_pays() {
 function function_passer_tour_simple(){
   jeu.tour.augmenter();
   update_liste_choix();
-  update_affichage();
+  update_affichage_joueur();
   update_affichage_pays();
 }
 
 function fermer_bouton_action(button_id) {
   document.getElementById(button_id).remove();
-  update_affichage();
+  update_affichage_joueur();
   update_affichage_pays();
 }
 
 modal_option1.onclick = function changement_de_tour_modal() {
   jeu.tour.augmenter();
   update_liste_choix();
-  update_affichage();
+  update_affichage_joueur();
 };
 
 modal_option2.onclick = function changement_de_tour_modal() {
   jeu.tour.augmenter();
   update_liste_choix();
-  update_affichage();
+  update_affichage_joueur();
 };

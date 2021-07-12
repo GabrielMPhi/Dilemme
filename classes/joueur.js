@@ -1,10 +1,11 @@
 class Joueur {
 
-    constructor(score, agents){
+    constructor(score, agents, liste_avantages){
         this._score= score
         this._ressources = 200
         this._agents = agents
         this._danger = 0
+        this._liste_avantages=liste_avantages
     }
 
     get score (){
@@ -34,6 +35,14 @@ class Joueur {
     set danger(e){
         this._danger = e
     }
+
+    get liste_avantages (){
+        return this._liste_avantages
+    }
+    set liste_avantages(e){
+        this._liste_avantages = e
+    }
+
 
     changementTour(observe){
         if (this._ressources <= 0){
