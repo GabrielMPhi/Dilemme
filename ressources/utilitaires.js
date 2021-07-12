@@ -23,9 +23,7 @@ function ajouter_dans_listeobservateur_tour(objet){
 
 
 function disableButtons(buttonName){
-    console.log(buttonName)
     buttonName.disabled = true
-    console.log(buttonName)
 }
 
 

@@ -33,7 +33,22 @@ function update_affichage_avantages() {
             button_vendre_avantage.className = "button is-small is-success";
             button_vendre_avantage.value = "Vendre";
             button_vendre_avantage.disabled = true;
-          
+            button_vendre_avantage.addEventListener("click", () => {
+                jeu.joueur.ressources+=100
+                jeu.joueur.danger+=5
+                update_affichage_joueur();
+                update_affichage_pays();
+                disableButtons(button_vendre_avantage)
+              });
+
+
+            if (jeu.joueur.ressources <= 199 && button_vendre_avantage.disabled){
+                enableButtons(button_vendre_avantage)
+            } 
+            //else {
+            //    disableButtons(button_vendre_avantage)
+            //}
+
   
         }
   
